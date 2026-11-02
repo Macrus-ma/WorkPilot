@@ -1,0 +1,23 @@
+server:
+  port: ${WORKPILOT_PORT:8080}
+
+spring:
+  application:
+    name: workpilot
+  datasource:
+    url: ${WORKPILOT_DB_URL:jdbc:mysql://127.0.0.1:3306/workpilot?useUnicode=true&characterEncoding=utf8&connectionTimeZone=%2B00:00&forceConnectionTimeZoneToSession=true}
+    username: ${WORKPILOT_DB_USER:workpilot}
+    password: ${WORKPILOT_DB_PASSWORD:}
+  sql:
+    init:
+      mode: never
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+workpilot:
+  auth:
+    token-hours: 12
